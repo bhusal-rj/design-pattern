@@ -16,6 +16,9 @@ func (app *application) routes() http.Handler {
 	//timeout the request if it takes more than 60 seconds to complete.
 	mux.Use(middleware.Timeout(60 * time.Second))
 
+	fileServer := http.FileServer(http.Dir("./static/"))
+	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
+
 	mux.Get("/", app.ShowHome)
 	mux.Get("/{page}", app.ShowPage)
 	return mux
