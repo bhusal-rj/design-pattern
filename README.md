@@ -1,4 +1,4 @@
-# Design Pattern Golang
+# Design Pattern Golang.
 
 ## Why Design Pattern?
 - Write cleaner, more maintainable and reusable code.

@@ -13,6 +13,7 @@ type templateData struct {
 
 func (app *application) render(w http.ResponseWriter, t string, td *templateData) {
 	var tmpl *template.Template
+	app.templateMap = make(map[string]*template.Template)
 
 	// if we are using the template cache, try to get the template from our map and store the receiver
 	if app.config.useCache {
