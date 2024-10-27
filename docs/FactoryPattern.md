@@ -4,7 +4,8 @@
 - It hides the complexity of object creation.
 - Client code has no idea about the object creation. It will just invoke the **new()** or similar function for object creation.
 - Client will not know the complexities in creating the objects as all the complexities are handled by the classes.
-
+- In factory pattern code that uses factory method is called client code
+- Specific implementation that the factory will create is called **concrete interfaces**
 
 ## Design of Factory Pattern
 
