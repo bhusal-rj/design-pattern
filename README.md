@@ -14,3 +14,6 @@
 - Builder and Fluent Interface
 - Worker Pool Pattern
 - Adapter Pattern
+
+## Topics covered within the **Repo**
+- [Factory Pattern](/docs/FactoryPattern.md)
