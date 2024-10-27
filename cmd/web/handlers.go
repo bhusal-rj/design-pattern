@@ -24,6 +24,11 @@ func (app *application) CreateDogFromFactory(w http.ResponseWriter, r *http.Requ
 }
 
 func (app *application) CreateCatFromFactory(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Creting cat from factory")
 	var t toolbox.Tools
 	_ = t.WriteJSON(w, http.StatusOK, pets.NewPet("cat"))
+}
+
+func (app *application) TestPatterns(w http.ResponseWriter, r *http.Request) {
+	app.render(w, "test.page.gohtml", nil)
 }
