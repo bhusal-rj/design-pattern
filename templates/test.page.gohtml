@@ -15,6 +15,16 @@
 			<div class="mt-2" style="outline: 1px solid silver; padding: 2em;">
 				<pre id="factory-output"><span class="text-muted">Nothing received yet...</span></pre>
 			</div>
+
+			<hr class="mt-4">
+			<h3 class="mt-3">Abstract Factory</h3>
+			<div>
+				<button  id="dog-abstract-factory-btn" class="btn btn-outline-secondary">Get a dog from abstract Factory</button>
+				<button  id="cat-abstract-factory-btn" class="btn btn-outline-secondary">Get a cat from abstract Factory</button>
+			</div>
+			<div class="mt-2" style="outline: 1px solid silver; padding: 2em;">
+				<pre id="abstract-factory-output"><span class="text-muted">Nothing received yet...</span></pre>
+			</div>
 		</div>
 	</div>
 </div>
@@ -25,7 +35,10 @@
 <script>
 let dogFactoryButton=document.getElementById("dog-factory-btn")
 let catFactoryButton=document.getElementById("cat-factory-btn")
+let dogAbstractFactoryButton=document.getElementById("dog-abstract-factory-btn")
+let catAbstractFactoryButton=document.getElementById("cat-abstract-factory-btn")
 let factoryOutput=document.getElementById("factory-output")
+let abstractFactoryOutput=document.getElementById("abstract-factory-output")
 
 document.addEventListener("DOMContentLoaded",function(){
 	dogFactoryButton.addEventListener("click",function(){
@@ -47,6 +60,28 @@ document.addEventListener("DOMContentLoaded",function(){
 				factoryOutput.innerHTML=data.error;
 			}else{
 				factoryOutput.innerHTML=JSON.stringify(data,undefined,4)
+			}
+		})
+	})
+	dogAbstractFactoryButton.addEventListener("click",function(){
+		fetch("/api/dog-from-abstract-factory")
+		.then((response)=>response.json())
+		.then((data)=>{
+			if(data.error){
+				abstractFactoryOutput.innerHTML=data.error;
+			}else{
+				abstractFactoryOutput.innerHTML=JSON.stringify(data,undefined,4)
+			}
+		})
+	})
+	catAbstractFactoryButton.addEventListener("click",function(){
+		fetch("/api/cat-from-abstract-factory")
+		.then((response)=>response.json())
+		.then((data)=>{
+			if(data.error){
+				abstractFactoryOutput.innerHTML=data.error;
+			}else{
+				abstractFactoryOutput.innerHTML=JSON.stringify(data,undefined,4)
 			}
 		})
 	})

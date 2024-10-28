@@ -8,7 +8,7 @@ type Animal interface {
 	LikesWater() bool
 }
 
-// create a concrete factory for dogs
+// create a concrete factory for dogs as it returns the object to the dog
 type Dog struct{}
 
 func (d *Dog) Says() {
@@ -39,6 +39,7 @@ type DogFactory struct {
 }
 
 // we can return both value and pointer in the interface
+// This is animal factory which is responsible for returning the animal
 func (df *DogFactory) New() Animal {
 	return &Dog{}
 }
@@ -52,10 +53,15 @@ func (cf *CatFactory) New() Animal {
 
 func main() {
 	//Create one each of a DogFactory and a CatFactory
+
+	//this is an instance of DogFactory struct
 	dogFactory := DogFactory{}
+
+	//this is cat object
 	catFactory := CatFactory{}
 
 	//call the new method to create a dog and a cat
+
 	dog := dogFactory.New()
 	cat := catFactory.New()
 
