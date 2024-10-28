@@ -15,7 +15,11 @@ const (
 )
 
 func initMySQLDB() (*sql.DB, error) {
-	db, err := sql.Open("mysql", os.Getenv("mysql_dsn"))
+	dsn := os.Getenv("mysql_dsn")
+	if len(dsn) < 5 {
+		dsn = "root:hello@tcp(localhost:3306)/breeders?parseTime=true&tls=false"
+	}
+	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
 	}
