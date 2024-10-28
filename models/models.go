@@ -1,17 +1,38 @@
 package models
 
-import "time"
+import (
+	"database/sql"
+	"time"
+)
+
+var db *sql.DB
+
+type Models struct {
+	DogBreed DogBreed
+}
+
+func New(conn *sql.DB) *Models {
+	db = conn
+
+	return &Models{
+		DogBreed: DogBreed{},
+	}
+}
 
 type DogBreed struct {
 	ID               int    `json:"id"`
 	Breed            string `json:"breed"`
 	WeightLowLbs     int    `json:"weight_low_lbs"`
 	WeightHighLbs    int    `json:"weight_high_lbs"`
-	AverageWeight    int    `json:"average_weight"`
+	AverageWeight    uint   `json:"average_weight"`
 	Lifespan         int    `json:"average_lifespan"`
-	Details          int    `json:"details"`
+	Details          string `json:"details"`
 	AlternativeNames string `json:"alternate_names"`
 	GeographicOrigin string `json:"grographic_origin"`
+}
+
+func (d *DogBreed) All() ([]*DogBreed, error) {
+	return d.AllDogBreeds()
 }
 
 type CatBreed struct {
