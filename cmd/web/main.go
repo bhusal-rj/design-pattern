@@ -3,13 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/bhusal-rj/design-pattern/config"
+	"github.com/joho/godotenv"
 	"html/template"
 	"log"
 	"net/http"
 	"time"
-
-	"github.com/bhusal-rj/design-pattern/models"
-	"github.com/joho/godotenv"
 )
 
 const port = ":4000"
@@ -17,7 +16,7 @@ const port = ":4000"
 type application struct {
 	templateMap map[string]*template.Template
 	config      appConfig
-	Models      models.Models
+	App         *config.Application
 }
 
 type appConfig struct {
@@ -37,7 +36,7 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
-	app.Models = *models.New(db)
+	app.App = config.New(db)
 	//create the server instance
 	srv := &http.Server{
 		Addr:              port,
