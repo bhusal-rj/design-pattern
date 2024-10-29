@@ -17,3 +17,6 @@
 
 ## Topics covered within the **Repo**
 - [Factory Pattern](/docs/FactoryPattern.md)
+- [Abstract Factory](/docs/AbstractFactory.md)
+- [Repository Pattern](/docs/RepositoryPattern.md)
+- [Singleton Pattern](/docs/SingletonPattern.md)

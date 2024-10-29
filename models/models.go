@@ -11,6 +11,7 @@ type Models struct {
 	DogBreed DogBreed
 }
 
+// connect to the database and return the database instance
 func New(conn *sql.DB) *Models {
 
 	if conn != nil {
