@@ -20,3 +20,4 @@
 - [Abstract Factory](/docs/AbstractFactory.md)
 - [Repository Pattern](/docs/RepositoryPattern.md)
 - [Singleton Pattern](/docs/SingletonPattern.md)
+- [Builder Pattern](/docs/BuilderPattern.md)
