@@ -54,6 +54,9 @@ func (cf *CatFactory) New() Animal {
 func main() {
 	//Create one each of a DogFactory and a CatFactory
 
+	//call the adapter
+	adapter()
+	return
 	//this is an instance of DogFactory struct
 	dogFactory := DogFactory{}
 
