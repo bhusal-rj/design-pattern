@@ -5,6 +5,8 @@ import "database/sql"
 // Repository is the database repository.
 type Repository interface {
 	AllDogBreeds() ([]*DogBreed, error)
+	GetBreedByName(b string) (*DogBreed, error)
+	GetDogOfMonthByID(b int) (*DogOfMonth, error)
 }
 
 // wrapper for *sql.DB

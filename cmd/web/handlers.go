@@ -108,3 +108,13 @@ func (app *application) CreateCatWithBuilder(w http.ResponseWriter, r *http.Requ
 	t.WriteJSON(w, http.StatusOK, newPet)
 
 }
+
+// func (app *application) AnimalFromAbstractFactory(w http.ResponseWriter, r *http.Request) {
+// 	//Setup the toolbox
+// 	var t toolbox.Tools
+// 	// Get species from URL itself.
+
+// 	// Create a pet from abstract factory.
+
+// 	// Write the result as JSON
+// }

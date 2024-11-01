@@ -36,6 +36,7 @@ type DogBreed struct {
 	Details          string `json:"details"`
 	AlternativeNames string `json:"alternate_names"`
 	GeographicOrigin string `json:"grographic_origin"`
+	AlternateNames   string `json:"alternate_name,allow_empty"`
 }
 
 func (d *DogBreed) All() ([]*DogBreed, error) {
@@ -104,4 +105,15 @@ type Pet struct {
 	MaxWeight   int    `json:"max_weight"`
 	Description string `json:"description"`
 	LifeSpan    int    `json:"lifespan"`
+}
+
+func (d *Dog) GetDogOfMonthByID(id int) (*DogOfMonth, error) {
+	return repo.GetDogOfMonthByID(id)
+}
+
+type DogOfMonth struct {
+	ID    int
+	Dog   *Dog
+	Video string
+	Image string
 }
